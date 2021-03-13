@@ -1,22 +1,18 @@
-const express = require('express')
+const express = require('express');
+const names = require('../names/names');
 const fs = require('fs');
 const router = express.Router();
 
-
 router.get('/login', (req, res) => {
-    res.render('login')
-})
+  res.render('login');
+});
 
 router.post('/login', function (req, res) {
-//   res.send('POST request to the homepage')
-    var userArr   = [username];
+  const username = req.body.username;
+  console.log(`username: ${username}`);
+  names.push(username);
 
-        function username ( username ) {
-            titleArr.push( username );
-            console.log( "USername: " + userArr.join(", ") );
-        }
-})
-
-
+  // render a page here, to confirm that the username has been added.
+});
 
 module.exports = router;
